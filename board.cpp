@@ -4,8 +4,7 @@
 
 #include "board.h"
 
-void Board::initialize()
-{
+Board::Board(int n) : size(n), grid(n, std::vector<int>(n, 0)), score(0) {
 	spawnTile();
 	spawnTile();
 }
@@ -54,6 +53,7 @@ bool Board::move(int direction)
 		for (size_t j = 0; j + 1 < row.size(); ++j) {
 			if (row[j] == row[j + 1]) {
 				row[j] *= 2;
+				score += row[j];
 				row[j + 1] = 0;
 				moved = true;
 				j++;
@@ -99,6 +99,7 @@ bool Board::canMove() const
 void Board::printBoard() const
 {
 	system("cls");
+	std::cout << "Score: " << score << "\n";
 	std::cout << " --------- --------- --------- --------- \n";
 	for (const auto& row : grid) {
 		std::cout << "|";

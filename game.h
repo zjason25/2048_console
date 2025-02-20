@@ -9,5 +9,5 @@ private:
 public:
 	Game();
 	void run();
-	void processInput(char input);
+	void processInput(int key);
 };

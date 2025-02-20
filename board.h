@@ -6,10 +6,10 @@ class Board {
 private:
 	std::vector<std::vector<int>> grid;
 	int size;
+	int score;
 
 public:
-	Board(int n = 4) : size(n), grid(n, std::vector<int>(n, 0)) {}
-	void initialize();
+	Board(int n = 4);
 	void spawnTile();
 	bool move(int direction);
 	bool canMove() const;
